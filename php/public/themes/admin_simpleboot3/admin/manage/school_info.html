@@ -1,0 +1,113 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <hr>
+                <h5 style="text-align: center;">
+                    学校信息
+                </h5>
+            <hr>
+            <div class="row clearfix">
+                <div class="col-md-6 column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            学校名称
+                        </dt>
+                        <dd>
+                            {$user['school_name']}
+                        </dd>
+                        <dt>
+                            注册时间
+                        </dt>
+                        <dd>
+                            {:date('Y-m-d H:i:s',$user['register_time'])}
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-6 column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            学校地址
+                        </dt>
+                        <dd>
+                            {$user['address']}
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="thumbnail" style="text-align: center">
+                        <img width='300' height="300" src="{:url('manage/school_image',array('id'=>$user['school_id'], 'image'=>'school_logo'))}" />
+                        学校LOGO
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="thumbnail" style="text-align: center">
+                        <img width='300' height="300" src="{:url('manage/school_image',array('id'=>$user['school_id'], 'image'=>'business_license'))}" />
+                        学校营业执照
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <hr>
+                <h5 style="text-align: center;">
+                    联系人信息
+                </h5>
+            <hr>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-6 column">
+            <dl class="dl-horizontal">
+                <dt>
+                    姓名
+                </dt>
+                <dd>
+                    {$user['user_nickname']}
+                </dd>
+                <dt>
+                    邮箱
+                </dt>
+                <dd>
+                    {$user['user_email']}
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-6 column">
+            <dl class="dl-horizontal">
+                <dt>
+                    手机号码
+                </dt>
+                <dd>
+                    {$user['mobile']}
+                </dd>
+                <dt>
+                    身份证号
+                </dt>
+                <dd>
+                    {$user['id_card']}
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="col-md-4 column"></div>
+    <div class="col-md-4 column">
+        <div class="row clearfix">
+            <if condition="$user['user_status'] eq 2">
+                <a class="btn btn-default btn-success js-ajax-dialog-btn" href="{:url('manage/school_pass', array('id'=>$user['user_id'], 'sid'=>$user['school_id']))}">通过</a>
+                <a class="btn btn-default btn-warning js-ajax-dialog-btn" href="{:url('manage/school_no', array('id'=>$user['user_id'], 'sid'=>$user['school_id']))}">拒绝</a>
+            </if>
+            <a class="btn btn-default" href="javascript:history.back(-1);">{:lang('BACK')}</a>
+        </div>
+    </div>
+    <div class="col-md-4 column"></div>
+</div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

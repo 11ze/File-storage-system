@@ -1,0 +1,84 @@
+Host = centos3.huangdf.com
+
+POST php/public/api/user/public/register
+     * 用户注册
+     * @param  string $username   学号
+     * @param  string $nickname   姓名
+     * @param  string $password   密码1
+     * @param  string $password2  密码2
+     * @param  string $useremail  邮箱 
+     * @param  string $schoolname 学校名
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+
+POST php/public/api/user/public/addSchool
+     * 学校管理员注册
+     * @param  string $nickname   联系人名字
+     * @param  string $password   密码1
+     * @param  string $password2  密码2
+     * @param  string $useremail  邮箱 
+     * @param  string $mobile     联系人手机号
+     * @param  string $schoolname 学校名
+     * @param  string $saddress   学校地址
+     * @param  string $idcard     联系人身份证号
+     * @param  file   $license    学校营业执照
+     * @param  file   $logo       学校logo
+     * @return code: 1成功 0失败 msg: 提示信息
+     */    
+
+GET  php/public/api/user/public/schools
+     * 读取学校列表
+     * @return array 包含学校名称的数组
+     */
+    
+POST php/public/api/user/public/login
+     * 用户登录 TODO 增加最后登录信息记录,如 ip
+     * @param  string $username    学号或邮箱
+     * @param  string $password    密码
+     * @param  string $schoolname  学校名字
+     * @return code: 1成功 0失败 msg: 提示信息
+     *         data: token: 登录成功token user: 用户信息
+     */
+    
+POST php/public/api/user/verification_code/send
+     * 发送邮箱验证码
+     * @param  string username 邮箱号
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+ 
+POST php/public/api/user/public/passwordReset
+     * 用户密码重置, 先获取到数字验证码填写后提交
+     * @param  string useremail 邮箱
+     * @param  string password 新密码
+     * @param  int    code     数字(邮箱)验证码
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+GET  php/pulic/api/user/public/logout
+     * 退出登录
+     * @param  header['XX-Token']  token
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+POST php/public/api/user/profile/change_password
+     * 用户密码修改
+     * @param  string $old_password  用户旧密码
+     * @param  string $password      新密码
+     * @param  string $password2     确认新密码
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+POST php/public/api/user/profile/change_info
+     * 用户基本信息修改
+     * @param  string  $user_nickname   用户昵称
+     * @param  int     $sex             性别, 0:保密 1:男 2:女
+     * @param  int     $birthday        用户生日, 时间戳
+     * @param  string  $signature       个性签名
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+POST php/public/api/user/profile/change_avatar
+     * 用户头像修改
+     * @param  file  $avatar  用户头像
+     * @return code: 1成功 0失败 msg: 提示信息
+     */

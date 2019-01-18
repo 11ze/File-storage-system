@@ -1,0 +1,34 @@
+Host = centos3.huangdf.com
+    
+POST php/public/api/file/public/index
+     * 获取用户所在学校所有的公共文件, 不包含文件夹, 可添加查询和排序条件
+     * @param  string $keyword 关键字查询文件名符合的文件, 可选
+     * @param  string $order   排序 filename:文件名 time:时间 size:大小, 可选
+     * @param  string $tagFind 标签查询符合的文件, 可选
+     * @return code: 1成功 0失败 msg: 提示信息 data: 文件列表(list)
+     */
+    
+POST php/public/api/file/public/me
+     * 获取用户所有已通过审核的公共文件
+     * @param  string $keyword 关键字查询文件名符合的文件, 可选
+     * @return code: 1成功 0失败 msg: 提示信息 data: 文件列表(list)
+     */
+    
+POST php/public/api/file/public/wait
+     * 获取用户所有待审核的公共文件
+     * @param  string $keyword 关键字查询文件名符合的文件, 可选
+     * @return code: 1成功 0失败 msg: 提示信息 data: 文件列表(list)
+     */
+    
+POST php/public/api/file/public/to_private
+     * 将用户的公共文件变为私有
+     * @param  string  files       公共文件id, 可多选
+     * @param  int     new_dir_id  私有文件存放的文件夹id
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+POST php/public/api/file/public/to_public
+     * 将用户的公共文件变为公有, 加入后台文件待审核
+     * @param  string  files  私有文件id, 可多选
+     * @return code: 1成功 0失败 msg: 提示信息
+     */

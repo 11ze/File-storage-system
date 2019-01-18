@@ -1,0 +1,564 @@
+html,body {
+    height: 100%;
+    overflow: hidden;
+}
+body, ul, p {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.icon {
+    position: relative;
+    top: -1px;
+    margin: 0 14px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+}
+
+.container {
+    position: relative;
+    padding: 0 0 0 240px;
+    height: 100%;
+}
+.aside {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 240px;
+    background: #F4F4F4;
+}
+.main {
+    height: calc(100vh);
+}
+/*aside*/
+.aside .header {
+    text-align: center;
+}
+.aside .header a {
+    color: black;
+    letter-spacing: 5px;
+}
+
+/*图标*/
+.icon-all {
+    background-image: url(../images/svg/icon-all.svg);
+}
+ .icon-alls {
+    background-image: url(../images/svg/icon-all-act.svg);
+     width: 100%;
+     height: 100%;
+}
+/*.icon-doc {*/
+    /*background-image: url(../images/svg/icon-doc.svg);*/
+/*}*/
+.icon-doc {
+    background-image: url(../images/svg/icon-doc-act.svg);
+    width: 100%;
+    height: 100%;
+}
+/*.icon-pic {*/
+    /*background-image: url(../images/svg/icon-pic.svg);*/
+/*}*/
+.icon-pic {
+    background-image: url(../images/svg/icon-pic-act.svg);
+    width: 100%;
+    height: 100%;
+}
+/*.icon-video {*/
+    /*background-image: url(../images/svg/icon-video.svg);*/
+/*}*/
+.icon-video {
+    background-image: url(../images/svg/icon-video-act.svg);
+    width: 100%;
+    height: 100%;
+}
+/*.icon-music {*/
+    /*background-image: url(../images/svg/icon-music.svg);*/
+/*}*/
+ .icon-music {
+    background-image: url(../images/svg/icon-music-act.svg);
+    width: 100%;
+    height: 100%;
+}
+.icon-upload-s {
+    background-image: url(../images/svg/icon-upload-s.svg);
+}
+.icon-add {
+    background-image: url(../images/svg/act/icon-add.svg);
+}
+.icon-trash {
+    background-image: url(../images/svg/act/icon-trash.svg);
+}
+.icon-mod-list {
+    background-image: url(../images/svg/icon-mode-list.svg);
+}
+.act .icon-mod-list {
+    background-image: url(../images/svg/icon-mode-list-act.svg);
+}
+.icon-mode-thumb {
+    background-image: url(../images/svg/icon-mode-thumb.svg);
+}
+.act .icon-mode-thumb {
+    background-image: url(../images/svg/icon-mode-thumb-act.svg);
+}
+.icon-checkbox {
+    background-image: url(../images/svg/icon-checkbox.svg);
+}
+.icon-checkbox:hover {
+    background-image: url(../images/svg/icon-checkbox-hover.svg);
+}
+.icon-checkbox-cur {
+    background-image: url(../images/svg/icon-checkbox-cur.svg);
+}
+.icon-checkbox-cur2 {
+    background-image: url(../images/svg/icon-checkbox-act.svg);
+}
+.icon-sort {
+    background-image: url(../images/svg/icon-sort.svg);
+}
+.icon-file-l {
+    width: 100px;
+    height: 80px;
+    background-image: url(../images/svg/doctype/icon-file-l.svg);
+}
+
+/*menu-list*/
+.menu-list {
+    margin: 0;
+}
+.menu-list li a {
+    position: relative;
+    padding-left: 34px;
+    display: block;
+    height: 32px;
+    line-height: 32px;
+}
+.menu-list li.cur a {
+    text-decoration: none;
+    background: 0 0;
+    color: #2980FF;
+    font-weight: 700;
+}
+.menu-list li a:hover {
+    text-decoration: none;
+    background: #EAEAEA;
+    transition: ease all;
+    transition-duration: .3s;
+}
+.menu-list li.cur a:hover {
+    background: 0 0;
+}
+.menu-list li.cur a:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 4px;
+    height: 28px;
+    top: 50%;
+    margin: -14px 0 0;
+    background: #2980FF;
+}
+
+.action-wrap {
+    position: relative;
+    float: left;
+    margin: 14px 16px 0 0;
+    padding: 0 20px;
+    border: 1px solid #DBDBDB;
+    border-radius: 2px;
+    cursor: pointer;
+    height: 34px;
+    line-height: 34px;
+}
+.action-wrap .icon {
+    margin: 0;
+}
+
+.action-wrap-upload {
+    background-color: #2980FF;
+    border-color: #2980FF;
+    color: #fff;
+}
+.action-wrap-upload:hover {
+    background-color: #2977EA;
+}
+
+/*顶部工具栏*/
+.toolbar {
+    border-bottom: 1px solid #DBDBDB;
+}
+.toolbar .layout {
+    position: relative;
+    z-index: 10;
+    margin-left: 50px;
+    height: 64px;
+}
+
+/*主体内容*/
+.main-body {
+    height: calc(100vh - 64px);
+    min-width: 630px;
+}
+
+/*主体头部*/
+.main-body .hd {
+    position: relative;
+    z-index: 2;
+    padding: 0 60px 0 50px;
+    box-sizing: border-box;
+    height: 48px;
+    line-height: 48px;
+}
+/*主体头部右侧*/
+.main-body .right {
+    float: right;
+}
+.main-body .right .action-wrap {
+    padding: 0;
+    border: none;
+}
+.main-body .right .action-wrap .act-txt {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background-color: #4D4D4D;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 2px;
+    padding: 0 8px;
+    height: 22px;
+    line-height: 22px;
+    display: none;
+}
+.main-body .right .action-wrap:hover .act-txt {
+    display: block;
+}
+/*面包屑*/
+.main-body .breadcrumb {
+    padding: 0;
+    position: relative;
+    left: -5px;
+    overflow: hidden;
+    display: flex;
+}
+.main-body .breadcrumb .item {
+    transition: flex-shrink .3s;
+    flex-basis: auto;
+    flex-shrink: 1;
+    min-width: 41px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    color: #777;
+}
+.main-body .breadcrumb .item a {
+    padding: 4px 5px;
+    color: #777;
+}
+.main-body .breadcrumb .item a:hover {
+    text-decoration: underline;
+}
+.main-body .breadcrumb .item.all {
+    min-width: 38px;
+}
+.main-body .breadcrumb .item.cur a {
+    color: #000;
+    font-weight: 700;
+}
+.main-body .breadcrumb .icon-bread-next {
+    width: 7px;
+    height: 12px;
+    margin: 2px 2px 0;
+    background-image: url(../images/svg/icon-bread-next.svg);
+}
+
+/*内容*/
+.list-wrap {
+    padding: 0 80px 0 10px;
+}
+.list-header {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.list-header:hover {
+    background-color: rgb(244, 244, 244);
+}
+.list-header .col {
+    float: left;
+}
+.list-header .col.checkbox {
+    float: left;
+    padding-left: 10px;
+    width: 30px;
+    height: 40px;
+}
+.list-header .col.checkbox .icon-checkbox {
+    top: 1px;
+
+}
+.list-header:hover .col.checkbox .icon-checkbox {
+    display: inline-block;
+}
+.col.col-border {
+    border-bottom: 1px solid #D8DCE5;
+}
+
+.list-header .col.name {
+    width: calc(100% - 40px);
+    font-size: 14px;
+}
+.list-header .col.info {
+    width: calc(100% - 40px);
+    font-size: 14px;
+}
+
+
+.list-item-wrap {
+    margin-left: 10px;
+    padding: 10px;
+    height: calc(((100vh - 65px) - 48px) - 40px);
+    overflow: auto;
+}
+
+/*缩略图*/
+.list-item-wrap-thumb .list-item .item {
+    position: relative;
+    float: left;
+    display: list-item;
+    width: 110px;
+    height: 110px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+.list-item-wrap-thumb .list-item .item.cur, .list-item-wrap-thumb .list-item .item:hover {
+    background-color: rgb(244,244,244);
+}
+.list-item-wrap-thumb .list-item .item .inner {
+    position: relative;
+    z-index: 3;
+    display: block;
+    padding-bottom: 0px;
+    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list-item-wrap-thumb .list-item .item .icon-wrapper {
+    display: block;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    padding-top: 80%;
+}
+.list-item-wrap-thumb .list-item .item .icon-wrapper .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -40px 0 0 -50px;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+}
+.list-item-wrap-thumb .list-item .item .inner .txt {
+    text-align: center;
+    color: rgb(2, 2, 2);
+    font-size: 14px;
+    max-height: 40px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0px auto;
+}
+.list-item-wrap-thumb .list-item .item .inner .txt:hover {
+    text-decoration: underline;
+}
+.list-item-wrap-thumb .list-item .item .checkbox {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 9;
+    margin: 0;
+
+
+}
+.list-item-wrap-thumb .list-item .item.cur .checkbox, .list-item-wrap-thumb .list-item .item:hover .checkbox {
+    display: inline-block;
+}
+/*figure-item*/
+.list-item-wrap-thumb .figure-item {
+    position: relative;
+    z-index: 0;
+    padding: 10px 0 0;
+}
+.list-item-wrap-thumb .figure-list-item {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 1px;
+    margin-bottom: 10px;
+    cursor: default;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 150px;
+}
+.list-item-wrap-thumb .figure-list-item:hover, .list-item-wrap-thumb .figure-list-item.cur {
+    background-color: rgb(244,244,244);
+}
+.list-item-wrap-thumb .figure-list-item-inner {
+    padding-bottom: 16px;
+    width: 100%;
+    border-radius: 2px;
+}
+.list-item-wrap-thumb .checkbox {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    right: 0;
+    cursor: default;
+    margin: 0;
+
+}
+.list-item-wrap-thumb .figure-list-item.cur .figure-list-item-inner .checkbox, .list-item-wrap-thumb .figure-list-item:hover .figure-list-item-inner .checkbox{
+    display: block;
+}
+/*.list-item-wrap .figure-list-item.cur .figure-list-item-inner .icon-checkbox{*/
+    /*display: block;*/
+    /*background-image: url(../images/svg/icon-checkbox-cur.svg);*/
+/*}*/
+.list-item-wrap-thumb .figure-list-item-pic {
+    position: relative;
+    z-index: 0;
+    padding-bottom: 1px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 150px;
+    border-radius: 2px;
+    font-size: 0;
+    text-align: center;
+}
+.list-item-wrap-thumb .img-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+.list-item-wrap-thumb .img-wrapper:before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+.list-item-wrap-thumb .figure-list-item-pic .icon-l {
+    position: absolute;
+    left: 50%;
+    display: inline-block;
+    width: 134px;
+    height: 134px;
+    margin: -67px 0 0 -67px;
+    box-sizing: border-box;
+    cursor: pointer;
+    top: 50%;
+    color: transparent;
+    font-size: 0;
+    background-repeat: no-repeat;
+}
+.list-item-wrap-thumb .figure-list-item-pic .icon-l:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.list-item-wrap-thumb .figure-list-item-pic .icon-l:after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.list-item-wrap-thumb .figure-list-item .figure-list-item-txt .tit {
+    overflow: hidden;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    color: #020202;
+    font-size: 5px;
+    max-height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.list-item-wrap-thumb .icon-zip-l::before {
+    background-image: url(../images/svg/doctype/icon-zip-l.svg);
+}
+
+/*列表模式*/
+.list-item-wrap-list {
+    margin-left: 0;
+    padding: 0 1px 0 0;
+}
+.list-item-wrap-list .row {
+    position: relative;
+    line-height: 40px;
+}
+.list-item-wrap-list .row:hover {
+    background-color: rgb(244, 244, 244);
+}
+.list-item-wrap-list .row.cur {
+    background-color: #308EFF;
+    color: white;
+}
+.list-item-wrap-list .col {
+    float: left;
+}
+.list-item-wrap-list .col.name {
+    padding: 10px 0;
+    width: calc(100% - 40px);
+}
+.list-item-wrap-list .checkbox-wrap {
+    position: relative;
+    top: 2px;
+    float: left;
+    padding: 10px 0 10px 10px;
+    width: 30px;
+    height: 40px;
+}
+.list-item-wrap-list .checkbox-wrap .checkbox {
+    display: none;
+}
+.list-item-wrap-list .row.cur .checkbox-wrap .checkbox, .list-item-wrap-list .row:hover .checkbox-wrap .checkbox {
+    display: inline-block;
+}
+
+
+/*画框*/
+.draw-selector {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    background-color: rgba(100,100,100,.2);
+}

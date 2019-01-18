@@ -1,0 +1,46 @@
+Host = centos3.huangdf.com
+    
+POST php/public/api/file/share/share_file
+     * 生成分享链接
+     * @param  string files      要分享的文件id, 可多个
+     * @param  string dead_time  有效时间 1:一天, 7:七天, 0:永久
+     * @param  string iscode     是否加密 1:加密 2:不加密
+     * @return code: 1:已存在 0:不存在 msg: 提示信息 data:link:分享链接 code:提取码 qr_code:图片二维码
+     */
+    
+POST php/public/api/file/share/get_share_file
+     * 获取分享链接对应的信息和文件列表
+     * @param  int  id   分享链接中的加密id
+     * @return code: 1:已存在 0:不存在 msg: 提示信息 data:分享链接的信息和文件, 分享人的信息
+     */
+    
+GET  php/public/api/file/share/index
+     * 获取我的所有分享文件
+     * @return code: 1:已存在 0:不存在 msg: 提示信息 data:我的所有分享文件
+     */
+    
+POST php/public/api/file/share/cancel_share
+     * 取消分享
+     * @param  string  share_id   分享链接的id, 可多选
+     * @return code: 1:已存在 0:不存在 msg: 提示信息
+     */
+
+POST php/public/api/file/share/get_share_nav
+     * 分享链接的面包屑导航
+     * @param  int share_id 分享链接的id
+     * @param  int dir_id   分享链接里的文件夹id
+     * @return code: 1成功 0失败 msg: 提示信息 data:分享链接的面包屑导航列表
+     */
+    
+POST php/public/api/file/share/read
+     * 查看分享链接里面的文件夹, 列出文件夹下的文件
+     * @param  int    $dir_id  文件夹id
+     * @return code: 1成功 0失败 msg: 提示信息 data: 文件列表(list)
+     */
+    
+POST php/public/api/file/share/download
+     * 返回oss验证信息
+     * @param  string  files  文件id, 可多选
+     * @param  int     sid    分享的链接的id
+     * @return code: 1成功 0失败 msg: 提示信息 data:oss验证信息
+     */

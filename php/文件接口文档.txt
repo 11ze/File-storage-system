@@ -1,0 +1,96 @@
+Host = centos3.huangdf.com
+    
+POST php/public/api/user/signature/file_exist
+     * 根据文件的md5和sha1值判断是否已经上传过
+     * @param  string file_md5   文件的md5值
+     * @return code: 1:已存在 0:不存在 msg: 提示信息
+     */
+    
+POST php/public/api/file/files/upload
+     * 上传文件
+     * @param  string $filename   带路径文件名
+     * @param  string $file_size  文件大小
+     * @param  string $status     公私有文件, 0:公有, 1:私有
+     * @param  array  $tags       文件标签
+     * @param  string $isdir      1:文件夹, 0:文件
+     * @param  string $file_md5   文件的md5值
+     * @param  int    $dir_id     文件夹id, 根目录传0
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+POST php/public/api/file/files/download
+     * 返回oss验证信息
+     * @param  string  files  文件id, 可多选
+     * @return code: 1成功 0失败 msg: 提示信息 data:oss验证信息
+     */
+    
+POST php/public/api/file/files/my_files
+     * 我的所有文件, 包含文件夹, 可添加查询和排序条件
+     * @param  int    $dir_id  文件夹id  0代表根目录
+     * @param  string $keyword 关键字查询文件名符合的文件, 可选
+     * @param  string $order   排序 filename:文件名 time:时间 size:大小, 可选
+     * @param  string $tagFind 标签查询符合的文件, 可选
+     * @return code: 1成功 0失败 msg: 提示信息 data: 文件列表(list)
+    
+POST php/public/api/file/files/class_files
+     * 按输入的分类返回用户的文件列表
+     * @param  string $type 文件分类: 图片 音乐 视频 文档 其他
+     * @param  string $keyword 关键字查询文件名符合的文件, 可选
+     * @return code: 1成功 0失败 msg: 提示信息 data: 文件列表(list)
+     */
+    
+POST php/public/api/file/files/delete_file
+     * 删除文件和文件夹
+     * @param  string  files  文件和文件夹id, 多个id用英文逗号隔开
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+
+POST php/public/api/file/files/recycle_bin
+     * 将文件放入回收站
+     * @param  string files 文件或文件夹id
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+POST php/public/api/file/files/restore_file
+     * 还原回收站的文件
+     * @param  string files 文件或文件夹id
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+
+GET  php/public/api/file/files/read_recycle_bin
+     * 查看回收站
+     * @param  string $keyword 关键字查询文件名符合的文件, 可选
+     * @return code: 1成功 0失败 msg: 提示信息 data: 文件列表
+     */
+    
+POST php/public/api/file/files/rename_file
+     * 重命名文件和文件夹
+     * @param  int    file_id      原文件名或文件夹id
+     * @param  string new_filename 新文件名, filename
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+POST php/public/api/file/files/move_file
+     * 移动文件, 不能移动到自己或子文件夹中
+     * @param  string  files       需要移动的文件和文件夹id
+     * @param  string  new_dir_id  要移动到的目的文件夹id
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+POST php/public/api/file/files/copy_file
+     * 复制文件, 不能复制到自己或子文件夹中, 保存公共的和分享的文件也用这个接口
+     * @param  string  files       需要复制的文件和文件夹id
+     * @param  string  new_dir_id  要复制到的目的文件夹id
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+    
+POST php/public/api/file/files/get_nav
+     * 面包屑导航
+     * @param  int dir_id 文件夹id, 0为根目录
+     * @return code: 1成功 0失败 msg: 提示信息 data:面包屑导航列表
+     */
+    
+GET  php/public/api/file/files/get_folder
+     * 用于获取从根目录开始的嵌套文件夹列表, 用于选择移动和复制文件的路径
+     * @return code: 1成功 0失败 msg: 提示信息 data:所有文件夹的嵌套列表
+     */

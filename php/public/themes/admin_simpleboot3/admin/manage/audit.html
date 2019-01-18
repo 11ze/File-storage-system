@@ -1,0 +1,54 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="wrap js-check-wrap">
+        <form class="well form-inline margin-top-20" method="post" action="{:url('Manage/audit')}">
+            学校:
+            <input type="text" class="form-control" name="school_name" style="width: 120px;" value="{:input('request.school_name/s','')}" placeholder="请输入学校名">
+            邮箱:
+            <input type="text" class="form-control" name="user_email" style="width: 120px;" value="{:input('request.user_email/s','')}" placeholder="请输入{:lang('EMAIL')}">
+            <input type="submit" class="btn btn-primary" value="搜索" />
+            <a class="btn btn-danger" href="{:url('manage/audit')}">清空</a>
+        </form>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th width="150">学校</th>
+                    <th>logo</th>
+                    <th>联系人</th>
+                    <th>手机号</th>
+                    <th>邮箱</th>
+                    <th>注册时间</th>
+                    <th width="130">{:lang('ACTIONS')}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <php>$user_statuses=array("0"=>lang('USER_STATUS_BLOCKED'),"1"=>lang('USER_STATUS_ACTIVATED'),"2"=>lang('USER_STATUS_UNVERIFIED'));</php>
+                <foreach name="users" item="vo">
+                <tr>
+                    <td>{$vo.school_id}</td>
+                    <td>{$vo.school_name}</td>
+                    <td width="45" style="text-align: center;padding: 0px;">
+                        <img width="30" height="30" src="{:url('manage/school_image',array('id'=>$vo['school_id'], 'image'=>'school_logo'))}"  style="border-radius: 4px"/>
+                    </td>
+                    <td>{$vo.user_nickname}</td>
+                    <td>{$vo.mobile}</td>
+                    <td>{$vo.user_email}</td>
+                    <td>{:date('Y-m-d H:i:s',$vo['register_time'])}</td>
+                    <td>
+                    <a href="{:url("manage/school_info",array("id"=>$vo["id"]))}">详情</a>
+                    <if condition="$vo['user_status'] eq 2">
+                        <a href="{:url('manage/school_pass', array('id'=>$vo['id'], 'sid'=>$vo['school_id']))}" class="js-ajax-dialog-btn" data-msg="确定该用户通过审核?">通过</a>
+                        <a href="{:url('manage/school_no', array('id'=>$vo['id'], 'sid'=>$vo['school_id']))}" class="js-ajax-dialog-btn" data-msg="确定该用户不通过审核?">拒绝</a>
+                    </if>
+                    </td>
+                </tr>
+                </foreach>
+            </tbody>
+        </table>
+        <div class="pagination">{$page}</div>
+    </div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

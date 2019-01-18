@@ -1,0 +1,26 @@
+Host = centos3.huangdf.com
+    
+GET  php/public/api/file/tags/read_all
+     * 获取用户所有标签
+     * @return code: 1成功 0失败 msg: 提示信息 data:包含用户所有标签的数组
+     */
+
+POST php/public/api/file/tags/edit_all
+     * 编辑用户所有标签
+     * @param  array  tags  包含多个标签的数组
+     * @return code: 1成功 0失败 msg: 提示信息
+     */
+
+
+GET  php/public/api/file/tags/read
+     * 获取指定文件的所有标签
+     * @param  int    fid  文件id
+     * @return code: 1成功 0失败 msg: 提示信息 data:包含指定文件所有标签的数组和包含用户所有标签的数组
+     */
+    
+POST php/public/api/file/tags/edit
+     * 编辑文件标签, 添加标签和删除标签都用这个接口
+     * @param  array  tags  包含多个标签的数组
+     * @param  int    fid  编辑标签的文件id
+     * @return code: 1成功 0失败 msg: 提示信息
+     */

@@ -1,0 +1,7 @@
+.buildpath
+.DS_Store
+.project
+.settings
+.idea
+/public/assets/dist
+/node_modules

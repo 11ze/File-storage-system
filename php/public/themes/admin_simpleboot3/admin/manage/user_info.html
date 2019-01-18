@@ -1,0 +1,99 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="container">
+    <div class="row clearfix">
+        <div class="col-md-3 column"></div>
+        <div class="col-md-4 column">
+            <hr>
+                <h5 style="text-align: center;">
+                    用户信息
+                </h5>
+            <hr>
+            <div class="thumbnail" style="border:none;text-align: center">
+                    <img width='150' height="150" src="{:url('user/public/avatar',array('id'=>$user['id']))}" style="border-radius:10px" /><br>
+                    {$user['user_nickname']}
+            </div>
+    </div>
+    <div class="row clearfix">
+            <div class="row clearfix">
+                <div class="col-md-6 column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            用户名
+                        </dt>
+                        <dd>
+                            {$user['user_login']}
+                        </dd>
+                        <dt>
+                            生日
+                        </dt>
+                        <dd>
+                            {:date('Y-m-d',$user['birthday'])}
+                        </dd>
+                        <dt>
+                            手机号
+                        </dt>
+                        <dd>
+                            {$user['mobile']}
+                        </dd>
+                        <dt>
+                            邮箱
+                        </dt>
+                        <dd>
+                            {$user['user_email']}
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-6 column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            学校
+                        </dt>
+                        <dd>
+                            {$user['school_name']}
+                        </dd>
+                        <dt>
+                            角色
+                        </dt>
+                        <dd>
+                            <switch name="$user['role_id']">
+                                <case value="2">学校管理员</case>
+                                <case value="3">普通管理员</case>
+                                <case value="4">普通用户</case>
+                                <default />系统管理员
+                            </switch>
+                        </dd>
+                        <dt>
+                            最后登录IP
+                        </dt>
+                        <dd>
+                            {$user['last_login_ip']}
+                        </dd>
+                        <dt>
+                            最后登录时间
+                        </dt>
+                        <dd>
+                            {:date('Y-m-d H:i:s',$user['last_login_time'])}
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-md-4 column"></div>
+    <div class="col-md-4 column">
+        <div class="row clearfix">
+            <if condition="$user['user_status'] eq 2">
+                <a class="btn btn-default btn-success js-ajax-dialog-btn" href="{:url('manage/school_pass', array('id'=>$user['user_id'], 'sid'=>$user['school_id']))}">通过</a>
+                <a class="btn btn-default btn-warning js-ajax-dialog-btn" href="{:url('manage/school_no', array('id'=>$user['user_id'], 'sid'=>$user['school_id']))}">拒绝</a>
+            </if>
+            <a class="btn btn-default" href="javascript:history.back(-1);">{:lang('BACK')}</a>
+        </div>
+    </div>
+    <div class="col-md-4 column"></div>
+</div>
+    <script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

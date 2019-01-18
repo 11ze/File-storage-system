@@ -1,0 +1,105 @@
+<include file="public@header" />
+</head>
+<body>
+    <div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <hr>
+                <h5 style="text-align: center;">
+                    文件信息
+                </h5>
+            <hr>
+            <div class="row clearfix">
+                <div class="col-md-6 column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            文件ID
+                        </dt>
+                        <dd>
+                            {$file.id}
+                        </dd>
+                        <dt>
+                            文件名
+                        </dt>
+                        <dd>
+                            <a href="{$file['oss_host'].'/'.$file['oss_file']}" style="text-decoration:none">{$file.filename}</a>
+                        </dd>
+                        <dt>
+                            上传时间
+                        </dt>
+                        <dd>
+                            {:date('Y-m-d H:i:s',$file['create_time'])}
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-6 column">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            文件大小
+                        </dt>
+                        <dd>
+                            {:intval($file.file_size/1024+1)} KB
+                        </dd>
+                        <dt>
+                            文件类型
+                        </dt>
+                        <dd>
+                            {$file['type']}
+                        </dd>
+                        <dt>
+                            下载次数
+                        </dt>
+                        <dd>
+                            {$file.download_times}
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="col-md-4 column"></div>
+    <div class="col-md-4 column">
+        <div class="row clearfix">
+            <a class="btn btn-default btn-success" onclick="but()">预览</a>
+            <if condition="$file['status'] eq 0">
+                <a class="btn btn-default btn-success js-ajax-dialog-btn" href="{:url('file/file_pass', array('id'=>$file['id'], 'sid'=>$file['id']))}">通过</a>
+                <a class="btn btn-default btn-warning js-ajax-dialog-btn" href="{:url('file/file_no', array('id'=>$file['id'], 'sid'=>$file['id']))}">拒绝</a>
+            </if>
+            <if condition="$file['status'] eq 1">
+                <a class="btn btn-default btn-warning js-ajax-dialog-btn" href="{:url('file/file_no', array('id'=>$file['id'], 'sid'=>$file['id']))}">删除</a>
+            </if>
+            <a class="btn btn-default" href="javascript:history.back(-1);">{:lang('BACK')}</a>
+        </div>
+    </div>
+    <div class="col-md-4 column"></div>
+</div>
+    <script src="__STATIC__/js/admin.js"></script>
+
+    <script>
+        function but(){
+            var key = '{$file.suffix}';
+            var pic = '{$file.type}';
+            var office = ['doc', 'docx', 'xlsx', 'xls'];
+            if (office.indexOf(key) >= 0)
+            {
+                key = 'word'
+            } else if (key == 'mp3') {
+                key = 'music';
+            } else if (key == 'mp4') {
+                key = 'video';
+            } else if (pic == '图片')
+            {
+                key = 'pic';
+            }
+            else {
+                window.alert('此类文件暂不支持预览')
+            }
+            var file = '?file={$file.oss_host}/{$file.oss_file}'
+            var type = '&type='+key //参数:video ,music,word,other(不支持查看)
+            window.open('http://centos3.huangdf.com/#/preview'+file+type)
+        }
+    </script>
+</body>
+</html>
